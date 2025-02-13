@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify'
+
 import { useForm } from 'react-hook-form'
 import { Error } from '@/components/error'
 
@@ -28,8 +30,10 @@ function FormPaciente() {
   const registerPacient = (data: DraftPaciente) => {
     if (activeId) {
       updatePaciente(data)
+      toast.success('Paciente actualizado correctamente')
     } else {
       addPaciente(data)
+      toast.success('Paciente agregado correctamente')
     }
     reset()
   }

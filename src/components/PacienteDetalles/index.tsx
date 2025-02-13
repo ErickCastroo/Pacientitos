@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 
 import { Pacientes } from '@/types'
 
@@ -13,6 +14,11 @@ function PacienteDetalles({ paciente }: PacienteDetallesProps) {
 
 
   const { deletePaciente, getPacientebyId } = usePacienteStore()
+
+  const handleClick = () => {
+    deletePaciente(paciente.id)
+    toast.success('Paciente eliminado correctamente')
+  }
 
 
   return (
@@ -30,7 +36,7 @@ function PacienteDetalles({ paciente }: PacienteDetallesProps) {
             Editar
           </button>
 
-          <button onClick={() => deletePaciente(paciente.id)} type='button' className='py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg'>
+          <button onClick={handleClick} type='button' className='py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg'>
             Eliminar
           </button>
         </div>

@@ -6,7 +6,7 @@ function PacienteList() {
   const { pacientes } = usePacienteStore()
   console.log(pacientes)
   return (
-    <div className='md:w-1/2 lg:w-3/5 mx-5 md:h-screen overflow-y-scroll'>
+    <div className='md:w-1/2 lg:w-3/5 mx-5 md:h-screen overflow-y-auto'>
       {
         pacientes.length === 0 ? (
           <>
